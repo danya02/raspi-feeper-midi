@@ -18,9 +18,7 @@ class Feeper:
         gpio.setmode(gpio.BOARD)
         gpio.setup(self.pin, gpio.OUT)
         while 1:
-            if self.note == -1:
-                gpio.output(self.pin, False)
-            else:
+            if self.note > -1:
                 self.phase = not self.phase
                 gpio.output(self.pin, self.phase)
                 time.sleep(1/midi[self.note])
