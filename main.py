@@ -40,9 +40,12 @@ m = mido.MidiFile("midi.mid")
 for i in m.play():
     random.shuffle(free)
     if i.type == "note_on":
-        a = free.pop()
-        a.note = i.note
-        busy = busy + [a]
+        try:
+            a = free.pop()
+            a.note = i.note
+            busy = busy + [a]
+        except:
+            print("Not enough speakers to play note "+str(i.note))
     elif i.type == "note_off":
         for j in busy:
             if j.note == i.note:
