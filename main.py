@@ -15,8 +15,8 @@ class Feeper:
         import RPi.GPIO as gpio
         global midi
         gpio.setwarnings(False)
-        gpio.setmode(self.__gpio.BOARD)
-        gpio.setup(self.pin, self.__gpio.OUT)
+        gpio.setmode(gpio.BOARD)
+        gpio.setup(self.pin, gpio.OUT)
         while 1:
             if self.note == -1:
                 gpio.output(self.pin, False)
