@@ -45,15 +45,7 @@ for i in m.play():
             a.note = i.note
             busy = busy + [a]
         except:
-            try:
-                for j in busy:
-                    if j.note == i.note:
-                        j.note = -1
-                        busy.remove(j)
-                        free = free + [j]
-                        break
-            except:
-                print("Not enough speakers to play note "+str(i.note))
+            print("Not enough speakers to play note "+str(i.note))
     elif i.type == "note_off":
         for j in busy:
             if j.note == i.note:
